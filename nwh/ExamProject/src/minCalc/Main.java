@@ -7,22 +7,22 @@ import java.io.InputStreamReader;
 public class Main {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    //¹öÆÛ¸®´õ·Î brÀ» ÀÔ·Â¹ŞÀ½
+    //ë²„í¼ë¦¬ë”ë¡œ brì„ ì…ë ¥ë°›ìŒ
     public static void main(String[] args) throws IOException {
         String[] input = br.readLine().split("\\-");
-        //-¸¦ ±âÁØÀ¸·Î ½ÄÀ» ÂÉ°³¾î ¹è¿­¿¡ ÀúÀå
+        //-ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì‹ì„ ìª¼ê°œì–´ ë°°ì—´ì— ì €ì¥
 
         int minResult = 0;
-        //ÃÖ¼Ú°ª ÃÊ±âÈ­
+        //ìµœì†Ÿê°’ ì´ˆê¸°í™”
 
         for (int i = 0; i < input.length; i++) {
             int calcNum = calc(input[i].split("\\+"));
-            //-·Î ÂÉ°³¾î ÀúÀåÇÑ ¹è¿­¿¡ ÀÎµ¦½º¸¦ °¢°¢ +¸¦ ±âÁØÀ¸·Î ÂÉ°³¾î calc·Î º¸³¿
+            //-ë¡œ ìª¼ê°œì–´ ì €ì¥í•œ ë°°ì—´ì— ì¸ë±ìŠ¤ë¥¼ ê°ê° +ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ìª¼ê°œì–´ calcë¡œ ë³´ëƒ„
             if (i == 0) 
             	calcNum *= -1; //-3
-            //°ıÈ£·Î ¹­Àº°Í³¢¸® -¿¬»êÀ» ÇØ¾ßÇÏÁö¸¸ Ã¹ ¹­À½Àº +·Î ½ÃÀÛÇÏ¹Ç·Î -1À» °öÇØ À½¼ö·Î ¹Ù²ãÁÜ
+            //ê´„í˜¸ë¡œ ë¬¶ì€ê²ƒë¼ë¦¬ -ì—°ì‚°ì„ í•´ì•¼í•˜ì§€ë§Œ ì²« ë¬¶ìŒì€ +ë¡œ ì‹œì‘í•˜ë¯€ë¡œ -1ì„ ê³±í•´ ìŒìˆ˜ë¡œ ë°”ê¿”ì¤Œ
             minResult -= calcNum; 
-            //ÃÖ¼Ú°ª º¯¼ö¿¡ °è»ê°ªÀ» °è¼ÓÇØ¼­ »©ÁÜ
+            //ìµœì†Ÿê°’ ë³€ìˆ˜ì— ê³„ì‚°ê°’ì„ ê³„ì†í•´ì„œ ë¹¼ì¤Œ
         }
 
         System.out.println(minResult);
@@ -30,11 +30,11 @@ public class Main {
 
     private static int calc(String[] subNums) {
         int result = 0;
-        //¹İÈ¯°ª ÃÊ±âÈ­
+        //ë°˜í™˜ê°’ ì´ˆê¸°í™”
         for (String item : subNums) {
-        	//item¿¡ ³Ñ¾î¿Â +·Î ÂÉ°µ input[i]³ÖÀ½
+        	//itemì— ë„˜ì–´ì˜¨ +ë¡œ ìª¼ê°  input[i]ë„£ìŒ
             result += Integer.parseInt(item);
-            //±× °è»ê°ªÀ» µû·Î ÀúÀåÇÏ¿© °è¼Ó´õÇÔ
+            //ê·¸ ê³„ì‚°ê°’ì„ ë”°ë¡œ ì €ì¥í•˜ì—¬ ê³„ì†ë”í•¨
         }
         return result;
         //result return
