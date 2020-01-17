@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RgbWay", "dynamicprogrammin
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ContinuitySum", "ContinuitySum\ContinuitySum.vcxproj", "{69DF6AFB-F120-4FDC-9C39-90223D517C57}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WineDrink", "WineDrink\WineDrink.vcxproj", "{D9DFF0CA-242D-4D58-9CB8-F8DB417BB060}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{69DF6AFB-F120-4FDC-9C39-90223D517C57}.Release|x64.Build.0 = Release|x64
 		{69DF6AFB-F120-4FDC-9C39-90223D517C57}.Release|x86.ActiveCfg = Release|Win32
 		{69DF6AFB-F120-4FDC-9C39-90223D517C57}.Release|x86.Build.0 = Release|Win32
+		{D9DFF0CA-242D-4D58-9CB8-F8DB417BB060}.Debug|x64.ActiveCfg = Debug|x64
+		{D9DFF0CA-242D-4D58-9CB8-F8DB417BB060}.Debug|x64.Build.0 = Debug|x64
+		{D9DFF0CA-242D-4D58-9CB8-F8DB417BB060}.Debug|x86.ActiveCfg = Debug|Win32
+		{D9DFF0CA-242D-4D58-9CB8-F8DB417BB060}.Debug|x86.Build.0 = Debug|Win32
+		{D9DFF0CA-242D-4D58-9CB8-F8DB417BB060}.Release|x64.ActiveCfg = Release|x64
+		{D9DFF0CA-242D-4D58-9CB8-F8DB417BB060}.Release|x64.Build.0 = Release|x64
+		{D9DFF0CA-242D-4D58-9CB8-F8DB417BB060}.Release|x86.ActiveCfg = Release|Win32
+		{D9DFF0CA-242D-4D58-9CB8-F8DB417BB060}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
