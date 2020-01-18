@@ -32,15 +32,202 @@ import java.util.Arrays;
 //33
 //출처
 //빠진 조건을 찾은 사람: keith
+//1
+//50
+//current answer :  50
+//---------------------------------
+//7
+//16
+//97
+//100
+//41
+//40
+//42
+//77
+//current answer :  316
+//---------------------------------
+//5
+//8
+//12
+//56
+//85
+//22
+//current answer :  149
+//---------------------------------
+//6
+//16
+//30
+//98
+//75
+//65
+//49
+//current answer :  242
+//---------------------------------
+//4
+//80
+//28
+//78
+//88
+//current answer :  246
+//---------------------------------
 public class No2156 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
+		
 		ver1();
-
 	}
 
 	static void ver1() throws NumberFormatException, IOException {
+		BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
+		int number = Integer.parseInt(sc.readLine());
+
+		String[] wines = new String[number];
+		String[][] winesCalc = new String[4][number];
+		//boolean[] wineStatus = new boolean[number] ;
+		int maxTot = 0;
+		int max[] = new int[4];
+		int tmpCost0 = 0;
+		int tmpCost1 = 0;
+		int tmpCost2 = 0;
+		int tmpCost3 = 0;
+		
+		
+		// 입력을 받아 파싱하여 배열로 저장
+		for (int i = 0;i<number;i++) {
+			wines[i] = sc.readLine().toString();
+		}                
+		
+		//Arrays.fill(wineStatus,true);
+		// 초기 값 세팅
+		//포도주의 양은 1,000 이하의 음이 아닌 정수이다.
+		for(int i = 0;i < 4;i++) {
+			max[i] = 0;
+		
+			winesCalc[i] = Arrays.copyOf(wines, wines.length);
+		}
+		
+
+
+
+
+		// 첫번째값을 최대로 지정 max값은 무조건 한개의 원소값보다는 크다.
+		
+		if(number < 2) {
+			for(int i=0;i<number;i++) { 
+				maxTot = maxTot+ Integer.parseInt(winesCalc[0][i]);
+			}
+		}else {
+	
+			//00
+			//max[0] += Integer.parseInt(winesCalc[0][0]);
+			//max[0] += Integer.parseInt(winesCalc[0][1]);
+			//winesCalc[0][0] = "-1";
+			//winesCalc[0][1] = "-1";
+
+			
+			//01
+			//max[1] += Integer.parseInt(winesCalc[1][0]);
+			max[1] += Integer.parseInt(winesCalc[1][1]);
+			//winesCalc[1][0] = "-1";
+			winesCalc[1][1] = "-1";
+
+			
+			//10
+			max[2] += Integer.parseInt(winesCalc[2][0]);
+			//max[2] += Integer.parseInt(winesCalc[2][1]);
+			winesCalc[2][0] = "-1";
+			//winesCalc[2][1] = "-1";
+
+			
+			//11
+			max[3] += Integer.parseInt(winesCalc[3][0]);
+			max[3] += Integer.parseInt(winesCalc[3][1]);
+			winesCalc[3][0] = "-1";
+			winesCalc[3][1] = "-1";
+
+
+
+				
+				
+	
+			for(int h = 0;h < 4;h++) {
+				System.out.println("\n"+h+"----------------------");
+				tmpCost0 = 0;
+				tmpCost1 = 0;
+				tmpCost2 = 0;
+				int i=2;
+				while(i<number) { 
+					//조건
+					if( !(winesCalc[h][i] == "-1") && !(winesCalc[h][i-1] == "-1" && winesCalc[h][i-2] == "-1")) {
+						tmpCost0 = max[h]+ Integer.parseInt(winesCalc[h][i]);						
+						if(i+1<number) {
+							tmpCost1 = max[h]+ Integer.parseInt(winesCalc[h][i+1]);
+						}if(i+2<number) {
+							tmpCost2 = max[h]+ Integer.parseInt(winesCalc[h][i+2]);
+							if(  !(winesCalc[h][i+1] == "-1") && !(winesCalc[h][i] == "-1" && winesCalc[h][i-1] == "-1")){
+								tmpCost3 = max[h]+ Integer.parseInt(winesCalc[h][i+1])+Integer.parseInt(winesCalc[h][i+2]);
+							}
+						}
+						// 3개중에 가장 최댓값을 골라서 넣는다
+						max[h] = Math.max(Math.max(tmpCost0, tmpCost1),Math.max(tmpCost2, tmpCost3));
+						System.out.println(max[h]);
+						// 어느 값을 넣었는지 확인하여 상태 표시 마셨다면 0;
+						if(tmpCost0 == max[h]) {
+							winesCalc[h][i] = "-1";							
+						}else if(i+1<number && tmpCost1 == max[h]) {
+							winesCalc[h][i+1] = "-1";
+						}else if(i+2<number) {
+							if(tmpCost2 == max[h]) {
+								winesCalc[h][i+2] = "-1";
+							}else if(tmpCost3 == max[h]) {
+								winesCalc[h][i+1] = "-1";
+								winesCalc[h][i+2] = "-1";
+							}
+							
+						}
+					}
+						i++;
+
+					
+
+				}
+				
+			}
+			
+
+			
+			
+		}
+
+		
+
+
+
+		maxTot =Math.max(Math.max(max[0], max[1]),Math.max(max[2], max[3]));
+		System.out.println("최댓값은 "+maxTot);
+		System.out.println("\n\n"+0 +" : "+max[0]);
+		for(String str : winesCalc[0]) {
+			System.out.print(str + "  ");
+		}
+		System.out.println("\n\n"+1 +" : "+max[1]);
+		for(String str : winesCalc[1]) {
+			System.out.print(str + "  ");
+		}
+		System.out.println("\n\n"+2 +" : "+max[2]);
+		for(String str : winesCalc[2]) {
+			System.out.print(str + "  ");
+		}
+		System.out.println("\n\n"+3 +" : "+max[3]);
+		for(String str : winesCalc[3]) {
+			System.out.print(str + "  ");
+		}
+		
+//		System.out.println(maxTot);
+
+	}
+
+	static void ver2() throws NumberFormatException, IOException {
 		BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
 		int number = Integer.parseInt(sc.readLine());
 
@@ -176,100 +363,9 @@ public class No2156 {
 		}
 		
 //		System.out.println(maxTot);
-
 	}
-	/*
-	static void ver2() throws NumberFormatException, IOException {
-		BufferedReader sc = new BufferedReader(new InputStreamReader(System.in));
-		int number = Integer.parseInt(sc.readLine());
-
-		String[][] wines = new String[4][number];
-		String[][] winesCalc = new String[4][number];
-		//boolean[] wineStatus = new boolean[number] ;
-		int max = 0;
-		int tmpCost0 = 0,tmpCost1 = 0,tmpCost2 = 0;
-		// 입력을 받아 파싱하여 배열로 저장
-		for (int i = 0;i<number;i++) {
-			wines[0][i] = sc.readLine().toString();
-			wines[1][i] = sc.readLine().toString();
-			wines[2][i] = sc.readLine().toString();
-			wines[3][i] = sc.readLine().toString();
-		}                
-		winesCalc = Arrays.copyOf(wines, wines.length);
-		//Arrays.fill(wineStatus,true);
+	
+	
 
 
-		// 첫번째값을 최대로 지정 max값은 무조건 한개의 원소값보다는 크다.
-		max = Integer.parseInt(wines[0]);
-		winesCalc[0] ="0";
-		
-		if(number < 2) {
-			for(int i=0;i<number;i++) { 
-				max = max+ Integer.parseInt(winesCalc[i]);
-			}
-		}else {
-			for(int i=0;i<2;i++) {
-
-				
-				tmpCost0 = max+ Integer.parseInt(winesCalc[i]);
-				tmpCost1 = max+ Integer.parseInt(winesCalc[i+1]);
-				tmpCost2 = max+ Integer.parseInt(winesCalc[i+2]);
-				max = Math.max(Math.max(tmpCost0, tmpCost1),tmpCost2);
-				
-				if(tmpCost0 == max) {
-					winesCalc[i] = "0";
-				}else if(tmpCost1 == max) {
-					winesCalc[i+1] = "0";
-					i+=1;
-				}else if(tmpCost2 == max) {
-					winesCalc[i+2] = "0";
-					i+=2;
-				}
-			}		
-
-			for(int i=2;i<number;i++) { 
-				if(!(winesCalc[i-1] == "0" && winesCalc[i-2] == "0") && winesCalc[i] != "0") {
-					tmpCost0 = max+ Integer.parseInt(winesCalc[i]);
-					if(i+1<number) {
-						tmpCost1 = max+ Integer.parseInt(winesCalc[i+1]);
-					}if(i+2<number) {
-						tmpCost2 = max+ Integer.parseInt(winesCalc[i+2]);
-					}
-					
-					
-
-					max = Math.max(Math.max(tmpCost0, tmpCost1),tmpCost2);
-
-					
-					if(tmpCost0 == max) {
-						winesCalc[i] = "0";
-					}else if(tmpCost1 == max) {
-						winesCalc[i+1] = "0";
-						i+=1;
-					}else if(tmpCost2 == max) {
-						winesCalc[i+2] = "0";
-						i+=2;
-					}
-				}				
-
-			}
-
-			
-			
-		}
-
-		
-
-
-
-
-		System.out.println(max);
-		
-		for(String str : winesCalc) {
-			System.out.print(str + "  ");
-		}
-
-	}
-
-*/
 }
