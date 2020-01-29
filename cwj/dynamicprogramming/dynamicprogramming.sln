@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "StairClimber", "StairClimbe
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntTryangle", "IntTryangle\IntTryangle.vcxproj", "{94DE9C1C-A50F-49E3-858A-546A4CB153C8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EasyStairNum", "EasyStairNum\EasyStairNum.vcxproj", "{54713A4B-CBDA-439C-AECC-4EF9121944DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -71,6 +73,14 @@ Global
 		{94DE9C1C-A50F-49E3-858A-546A4CB153C8}.Release|x64.Build.0 = Release|x64
 		{94DE9C1C-A50F-49E3-858A-546A4CB153C8}.Release|x86.ActiveCfg = Release|Win32
 		{94DE9C1C-A50F-49E3-858A-546A4CB153C8}.Release|x86.Build.0 = Release|Win32
+		{54713A4B-CBDA-439C-AECC-4EF9121944DC}.Debug|x64.ActiveCfg = Debug|x64
+		{54713A4B-CBDA-439C-AECC-4EF9121944DC}.Debug|x64.Build.0 = Debug|x64
+		{54713A4B-CBDA-439C-AECC-4EF9121944DC}.Debug|x86.ActiveCfg = Debug|Win32
+		{54713A4B-CBDA-439C-AECC-4EF9121944DC}.Debug|x86.Build.0 = Debug|Win32
+		{54713A4B-CBDA-439C-AECC-4EF9121944DC}.Release|x64.ActiveCfg = Release|x64
+		{54713A4B-CBDA-439C-AECC-4EF9121944DC}.Release|x64.Build.0 = Release|x64
+		{54713A4B-CBDA-439C-AECC-4EF9121944DC}.Release|x86.ActiveCfg = Release|Win32
+		{54713A4B-CBDA-439C-AECC-4EF9121944DC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
