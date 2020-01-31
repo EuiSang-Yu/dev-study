@@ -52,6 +52,7 @@ public class No2156 {
 		int tmpCost0 = 0;
 		int tmpCost1 = 0;
 		int tmpCost2 = 0;
+		int tmpCost3 = 0;
 		
 		
 		// 입력을 받아 파싱하여 배열로 저장
@@ -125,10 +126,15 @@ public class No2156 {
 						if(i+1<number) {
 							tmpCost1 = max[h]+ Integer.parseInt(winesCalc[h][i+1]);
 						}if(i+2<number) {
-							tmpCost2 = max[h]+ Integer.parseInt(winesCalc[h][i+2]);
+							if(!(winesCalc[h][i] == "-1" && winesCalc[h][i-1] == "-1")) {
+								tmpCost2 = max[h]+ Integer.parseInt(winesCalc[h][i+1]) +Integer.parseInt(winesCalc[h][i+2]);
+							}
+							
+							tmpCost3 = max[h]+ Integer.parseInt(winesCalc[h][i+2]);						
+							
 						}
 						// 3개중에 가장 최댓값을 골라서 넣는다
-						max[h] = Math.max(Math.max(tmpCost0, tmpCost1),tmpCost2);
+						max[h] = Math.max(Math.max(tmpCost0, tmpCost1),Math.max(tmpCost2, tmpCost3));
 						System.out.println(max[h]);
 						// 어느 값을 넣었는지 확인하여 상태 표시 마셨다면 0;
 						if(tmpCost0 == max[h]) {
@@ -136,7 +142,13 @@ public class No2156 {
 						}else if(i+1<number && tmpCost1 == max[h]) {
 							winesCalc[h][i+1] = "-1";
 						}else if(i+2<number && tmpCost2 == max[h]) {
-							winesCalc[h][i+2] = "-1";
+							if(tmpCost2 == max[h]) {
+								winesCalc[h][i+1] = "-1";
+								winesCalc[h][i+2] = "-1";								
+							}
+							if(tmpCost3 == max[h]) {
+								winesCalc[h][i+2] = "-1";
+							}							
 						}
 					}
 						i++;
