@@ -1,5 +1,13 @@
-유한대 알고리즘 스터디 코드 리포지토리
-<<<<<<< HEAD
-=======
-1일차
->>>>>>> 06d9642f881215dc19d2bfa7b12d3bf447d31bce
+<h2 align="center">알고리즘 스터디</h2>
+<p align="center">
+  🙍‍♂️  <strong>YuhanUniversity</strong> 🙍‍♂️
+</p>
+<br><br><br>
+
+### Maintainer
+* 최우중
+* 노원호
+* 유의상
+* 박평근
+<br>
+<hr>
